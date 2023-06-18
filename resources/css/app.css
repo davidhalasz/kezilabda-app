@@ -1,3 +1,257 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a {
+    cursor: pointer;
+}
+
+body {
+    background-color: #232323;
+}
+
+/* Image carousel */
+
+:root {
+    --card-height: 180px;
+    --card-width: 150px;
+    --card-b-radius: 26px;
+    --card-color: rgba(51, 51, 51, 1);
+
+    --img-height: 180px; /*used for calculations in CSS, actually set in HTML */
+    --img-padding-bottom: var(--card-b-radius);
+}
+
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: var(--card-width);
+    align-items: center;
+    font-family: Arial;
+}
+
+.carousel__list {
+    display: flex;
+    list-style: none;
+    position: relative;
+    width: 100%;
+    height: var(--card-height);
+    justify-content: center;
+    perspective: 300px;
+}
+.carousel__item {
+    display: flex;
+    color: #fff;
+    font-size: 0px;
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: var(--card-b-radius);
+    box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+    position: absolute;
+    transition: all 0.3s ease-in;
+}
+
+.carousel__item {
+    color: white;
+    background-color: #333;
+}
+.carousel__item * {
+    display: inline;
+}
+.carousel__item h2 {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 0;
+    height: calc(
+        var(--card-height) - var(--img-height) - var(--img-padding-bottom)
+    );
+    line-height: calc(
+        var(--card-height) - var(--img-height) - var(--img-padding-bottom)
+    );
+    font-size: 32px;
+}
+.carousel__item div.img {
+    position: relative;
+    height: var(--img-height);
+    width: var(--card-width);
+    background-color: white;
+}
+.carousel__item:nth-child(1) div.img {
+    background-color: white;
+}
+
+/* current */
+.carousel__item[data-pos="1"] {
+    z-index: 2;
+}
+
+/* prev, next */
+.carousel__item[data-pos="0"],
+.carousel__item[data-pos="2"] {
+    opacity: 0.7;
+    filter: blur(1px) grayscale(10%);
+    z-index: 1;
+}
+.carousel__item[data-pos="0"] {
+    transform: translateX(-40%) scale(0.9);
+}
+.carousel__item[data-pos="2"] {
+    transform: translateX(40%) scale(0.9);
+}
+
+/* backstack */
+.carousel__item[data-pos="3"],
+.carousel__item[data-pos="4"],
+.carousel__item[data-pos="5"],
+.carousel__item[data-pos="6"],
+.carousel__item[data-pos="7"] {
+    opacity: 0;
+}
+
+/* END: Rotating Carousel by Lucas Pichette */
+
+/* START: Waves-Bottom */
+/* https://www.shapedivider.app/ */
+.custom-shape-divider-bottom-1631560563 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1631560563 .shape-fill {
+    fill: var(--card-color);
+}
+/* END: Waves-Bottom */
+
+/* START: Tilt-Top */
+/* https://www.shapedivider.app/ */
+.custom-shape-divider-top-1631560779 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1631560779 .shape-fill {
+    fill: var(--card-color);
+}
+/* END: Tilt-Top */
+
+.neumorphCard {
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    padding: 10px 0;
+    margin-top: 20px;
+    -webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Hirek card */
+.card {
+    padding: 1rem;
+    /*border-radius: 16px;*/
+    background: #17141d;
+    box-shadow: -1rem 0 3rem #00000067;
+    transition: 0.2s;
+    font-family: "Inter", sans-serif;
+}
+
+.card:hover {
+    transform: translateY(-0.4rem);
+}
+
+.card:hover .title {
+    background: linear-gradient(90deg, rgb(103 232 249), rgb(2 132 199));
+    text-shadow: none;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-content .line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.card-header {
+    margin-bottom: auto;
+    color: #7a7a8c;
+}
+
+.card-header p {
+    font-size: 14px;
+    margin: 0 0 1rem;
+    color: #7a7a8c;
+}
+
+.card-header .title {
+    font-size: 25px;
+    margin: 0.25rem 0 auto;
+    font-family: "Arial Black", sans-serif;
+}
+
+
+/*Polygon Card */
+.newCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 4.5rem 2rem;
+}
+
+.card__content {
+    display: grid;
+    gap: 1rem;
+}
+
+.newCard:after, .newCard:before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: skewY(-5deg);
+    z-index: -1;
+}
+
+.newCard:before {
+    background-image: linear-gradient(35deg,#0ea5e9 10%,#40bddf 25%,#5cadcb 50%,#00bbcb 75%,#7988d6 90%);
+    border-radius: 0.25rem;
+    height: calc(100% + 1px);
+    top: -1px;
+    transition: transform .24s ease-in;
+}
+
+.newCard:after {
+    background-image: linear-gradient(to bottom,rgba(30,28,34,.75), #1e1c22 0.75rem);
+}
+
+.newCard:hover {
+    transform: translateY(-0.4rem);
+    transition: transform .24s ease-in;
+}
+
+.newCard:hover h2 {
+    background: linear-gradient(90deg, #67e8f9, #0284c7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.moreTop:before {
+    top: -3px !important;
+}
