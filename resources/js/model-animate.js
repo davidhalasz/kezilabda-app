@@ -96,7 +96,7 @@ function createScene() {
         opacity: 0.4,
     });
     planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
-    planeMesh.position.set(0, 0, 4);
+    planeMesh.position.set(0, 0,7);
     scene.add(planeMesh);
 
     // Create a point light
@@ -171,7 +171,7 @@ function introAnimation() {
                 // from camera position
                 x: 0, //desired x position to go
                 y: 0, //desired y position to go
-                z: 4, //desired z position to go
+                z: 5, //desired z position to go
             },
             6500
         ) // time take to animate
