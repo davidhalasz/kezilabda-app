@@ -93,29 +93,29 @@ function createScene() {
     const planeMaterial = new THREE.MeshStandardMaterial({
         color: 0x232323,
         transparent: true,
-        opacity: 0.4,
+        opacity: 0.6,
     });
     planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
-    planeMesh.position.set(0, 0,7);
+    planeMesh.position.set(0, 0,10);
     scene.add(planeMesh);
 
     // Create a point light
     //const pointLight = new THREE.SpotLight(0xFFD700, 1, 0, 0.2, 0.8, 1);
-    const pointLight = new THREE.PointLight(0xFFD700, 1, 9, 2);
-    pointLight.position.set(0, 0, 3.7);
+    const pointLight = new THREE.PointLight(0xFFD700, 1, 20, 2);
+    pointLight.position.set(0, 0, -5);
     scene.add(pointLight);
 }
 
 function createCamera() {
     camera = new THREE.PerspectiveCamera(25, aspectRatio, 1, 1000);
-    camera.position.set(0, 0, 4);
+    camera.position.set(0, 0, 0);
     //camera.rotation.x = Math.PI/2-1;
     //camera.position.z = 13;
     scene.add(camera);
 }
 
 function createObjectMesh() {
-    const glburl = "/storage/images/objno1.glb";
+    const glburl = "/storage/images/masikblend.glb";
     loader.load(glburl, function (gltf) {
         gltf.scene.traverse((obj) => {
             if (obj.isMesh) {
@@ -139,11 +139,11 @@ function transformMesh() {
     );
 
     const pointsMaterial = new THREE.PointsMaterial({
-        color: "aqua",
+        color: "#a87c5b",
         size: 0.01,
         transparent: true,
         blending: THREE.AdditiveBlending,
-        opacity: 0.8,
+        opacity: 0.9,
         depthWrite: false,
         sizeAttenuation: true,
     });
@@ -151,6 +151,8 @@ function transformMesh() {
     points = new THREE.Points(pointsGeometry, pointsMaterial);
     points.scale.z = 1;
     points.scale.x = 1;
+    //points.rotation.y += 2;
+    points.rotation.y += 1.8;
     scene.add(points);
 
     const bbox = new THREE.Box3().setFromObject(points);
@@ -164,14 +166,14 @@ function transformMesh() {
 
 function introAnimation() {
     controls.enabled = false; //disable orbit controls to animate the camera
-
-    new TWEEN.Tween(camera.position.set(3, 2,-1))
+    //camera.position.set(-0.5, 2.6, -2.5)
+    new TWEEN.Tween(camera.position.set(3, 2.4, -2.5))
         .to(
             {
                 // from camera position
                 x: 0, //desired x position to go
                 y: 0, //desired y position to go
-                z: 5, //desired z position to go
+                z: 5.2, //desired z position to go
             },
             6500
         ) // time take to animate

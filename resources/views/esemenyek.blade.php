@@ -1,11 +1,11 @@
 <x-guest-layout>
-    <div class="w-full min-h-screen bg-[#232323]">
-        <div class="w-full text-[#eaaa84]">
+    <div class="w-full min-h-screen bg-[#f1e1d0]">
+        <div class="w-full text-[#a87c5b]">
             @include('components.navbar')
         </div>
 
-        <div class="container mx-auto py-8 text-gray-300">
-            <h2 class="text-center text-3xl mb-8 text-gray-200">Események</h2>
+        <div class="container mx-auto pt-8 pb-24 text-[#2323232]">
+            <h2 class="text-center text-3xl mb-8 text-[#a87c5b]">Mérkőzések</h2>
             @php
                 $customDate = '2010-05-12 13:57:01';
                 $currentYear = date('Y', strtotime($customDate));
@@ -19,18 +19,18 @@
                     $eventMonth = date('m', strtotime($event['date']));
                 @endphp
 
-                <div class="flex flex-row {{ $eventYear != $previousYear || $eventMonth != $previousMonth ? 'mt-6' : '' }}">
-                    <h2 class="w-1/4 font-bold text-4xl">
+                <div class="flex  flex-row {{ $eventYear != $previousYear || $eventMonth != $previousMonth ? 'pt-4' : '' }}">
+                    <h2 class="w-1/4 font-bold text-4xl depth">
                         @if ($eventYear != $previousYear || $eventMonth != $previousMonth)
                             {{ $eventYear . ' ' . \Carbon\Carbon::createFromFormat('m', $eventMonth)->isoFormat('MMMM') }}
                         @endif
                     </h2>
 
-                    <div class="w-3/4 {{ $eventYear == $previousYear && $eventMonth == $previousMonth ? 'mt-2' : '' }}">
+                    <div class="w-3/4 pb-4 px-4 {{ $eventYear == $previousYear && $eventMonth == $previousMonth ? 'pt-2 border-t-2 border-slate-200' : '' }}">
                         <p class="text-lg font-bold">{{ $event->title }}</p>
-                        <p>Idopont: 2023 junius 13. 17:00</p>
-                        <p>Helyszin: {{ $event->address }}</p>
-                        <p>
+                        <p>Időpont: 2023 junius 13. 17:00</p>
+                        <p>Helyszín: {{ $event->address }}</p>
+                        <p class="mt-2">
                             {{ $event->description }}
                         </p>
                     </div>

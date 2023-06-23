@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div>
         <div class="h-screen w-full relative">
-            <div class="absolute top-0 w-full text-[#eaaa84]">
+            <div class="absolute top-0 w-full text-[#a87c5b]">
                 @include('components.navbar')
             </div>
             <div class="absolute h-full flex items-center">
@@ -15,37 +15,36 @@
         </div>
         <div class="w-full bg-[#232323] py-10 text-white">
             <div class="container mx-auto">
-                <h2 class="text-center text-3xl mb-8">Események</h2>
+                <h2 class="text-center text-3xl mb-8 text-[#a87c5b]">Mérkőzések</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     @foreach ($events as $event)
-                        <a href="#">
-                            <div class="rounded-2xl shadow-lg p-4 border-2 hover:border-2 hover:border-[#AC6E49]">
+
+                            <div class="rounded-2xl shadow-lg p-4 border-2 border-gray-300 text-gray-300">
                                 <h2 class="text-xl font-bold">
                                     {{ \Carbon\Carbon::parse($event->date)->isoFormat('YYYY MMMM DD.') }}</h2>
                                 <h3 class="Text-lg font-bold mb-2">
                                     {{ \Carbon\Carbon::parse($event->date)->isoFormat('HH:mm') }}</h3>
                                 <p class="text-md font-bold mb-1">{{ $event->title }}</p>
                                 <p class="text-md">Helyszin: {{ $event->address }}</p>
-                                <p class="text-md">{{ $event->description }}</p>
+                                <p class="text-md mt-2">{{ $event->description }}</p>
                             </div>
-                        </a>
+
                     @endforeach
                 </div>
-                <div class="w-full flex justify-center mt-10">
+                <div class="w-full flex justify-center mt-10 text-[#a87c5b]">
                     <a href="/esemenyek">
                         <button
-                            class="py-2 px-8 rounded-full border-2 border-white font-bold hover:bg-white hover:text-gray-800">Még
-                            több esemény</button>
+                            class="py-2 px-8 rounded-full border-2 border-[#a87c5b] font-bold hover:bg-[#a87c5b] hover:text-gray-800">További mérkőzések</button>
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="relative w-full">
-            <div class="absolute w-full h-full bg-white -z-10"></div>
+            <div class="absolute w-full h-full bg-[#f1e1d0] -z-10"></div>
             <div class="container mx-auto py-14">
                 <h2 class="text-center text-3xl mb-8">Hírek</h2>
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     @foreach ($posts as $post)
                         @php
                             $pattern = '/<figure\b[^>]*>(.*?)<\/figure>/s';
@@ -57,7 +56,7 @@
                             $string = trim($string);
                         @endphp
                         <a class="newCard" href="/hirek/{{$post->id}}">
-                            <div class="text-white">
+                            <div class="text-gray-300">
                                 <div class="card__content">
                                     <h2 class="font-bold text-2xl">{{$post->title}}</h2>
                                     <div class="text-md leading-6 line-clamp-5">{{$string}}</div>
@@ -81,14 +80,14 @@
 
         <div class="w-full bg-[#232323]">
             <div id="csapatok" class="container mx-auto pt-14 pb-36">
-                <h2 class="text-center text-3xl mb-8 text-gray-200">Csapatok</h2>
+                <h2 class="text-center text-3xl mb-8 text-[#a87c5b]">Csapatok</h2>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2">
                     @foreach ($teams as $team)
                         <a href="/csapatok/{{$team->id}}">
                             <div id="carousel-{{ $loop->index }}" class="mb-36 relative w-full flex justify-center">
                                 <div
                                     class="neumorphCard absolute w-2/3 h-[180px] rounded-2xl -bottom-28 flex justify-center">
-                                    <h2 class="absolute text-2xl bottom-0 py-6 text-gray-300">
+                                    <h2 class="absolute text-2xl bottom-0 py-6 text-[#a87c5b]">
                                         {{ $team->name }}
                                     </h2>
                                 </div>

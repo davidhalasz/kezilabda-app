@@ -1,22 +1,23 @@
 <x-guest-layout>
-    <div class="w-full min-h-screen bg-[#232323]">
-        <div class="w-full text-[#eaaa84]">
+    <div class="w-full min-h-screen bg-[#f1e1d0]">
+        <div class="w-full text-[#232323]">
             @include('components.navbar')
         </div>
-        <div class="container mx-auto py-8">
+        <div class="container mx-auto pt-8 pb-24">
             <div class="text-5xl font-extrabold flex justify-center w-2/3 mx-auto">
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#67e8f9] to-[#0284c7]">
+                <span class="text-[#232323]">
                   {{$post->title}}
                 </span>
             </div>
-            <div class="text-center w-full text-gray-500 font-bold text-lg mt-4">
+            <div class="text-center w-full text-gray-700 font-bold text-lg mt-4">
                 {{ \Carbon\Carbon::parse($post->created_at)->isoFormat('YYYY MMMM DD.') }}
             </div>
 
-            <div class="mt-14 text-xl text-gray-300">
+            <div class="mt-14 text-xl text-gray-800">
                 {!! $post->description!!}
             </div>
         </div>
+    </div>
     <script>
         function scrollToDiv() {
             window.location.href = '/#csapatok';

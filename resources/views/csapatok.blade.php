@@ -1,19 +1,18 @@
 <x-guest-layout>
-    <div class="w-full">
+    <div class="w-full min-h-screen pt-8 pb-24">
         <div class="w-full text-[#eaaa84]">
             @include('components.navbar')
         </div>
-        <h1 class="text-center text-3xl mb-8 text-gray-200">{{ $team->name }}</h2>
+        <h1 class="text-center text-3xl mb-8 text-[#a87c5b]">{{ $team->name }}</h2>
             <div class="container mx-auto">
-                <div class="grid grid-cols-5 gap-8 justify-center">
+                <div class="grid grid-cols-5 gap-10 justify-center">
                     @foreach ($team->players as $player)
                     <div class="img rounded-xl relative">
                         <img class="rounded-xl w-full h-full object-cover"
                             src="{{ URL::asset('storage/' . $player->avatar) }}" />
-                            <div class="absolute w-full flex justify-center -bottom-4">
-                                <button
-                                    class="py-1 px-4 rounded-full border-2 font-bold bg-gray-100 text-black">{{$player->name}}</button>
-                            </div>
+                            <h2 class="w-full px-4 py-2 bg-[#a87c5b] text-white absolute w-full flex justify-center -right-3 -bottom-2 -skew-y-2 rounded-md shadow-lg shadow-[#a87c5b]/50">
+                                {{$player->name}}
+                            </h2>
                     </div>
                     @endforeach
                 </div>

@@ -136,10 +136,7 @@ body {
     opacity: 0;
 }
 
-/* END: Rotating Carousel by Lucas Pichette */
 
-/* START: Waves-Bottom */
-/* https://www.shapedivider.app/ */
 .custom-shape-divider-bottom-1631560563 {
     position: absolute;
     bottom: 0;
@@ -155,8 +152,6 @@ body {
 }
 /* END: Waves-Bottom */
 
-/* START: Tilt-Top */
-/* https://www.shapedivider.app/ */
 .custom-shape-divider-top-1631560779 {
     position: absolute;
     top: 0;
@@ -172,14 +167,14 @@ body {
 /* END: Tilt-Top */
 
 .neumorphCard {
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: rgba(178, 168, 159, 0.06);
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     padding: 10px 0;
     margin-top: 20px;
     -webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
     box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
-    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(178, 168, 159, 0.06);
 }
 
 /* Hirek card */
@@ -197,7 +192,7 @@ body {
 }
 
 .card:hover .title {
-    background: linear-gradient(90deg, rgb(103 232 249), rgb(2 132 199));
+    background: linear-gradient(90deg, rgb(103 232 249), hsl(200, 98%, 39%));
     text-shadow: none;
     background-clip: text;
     -webkit-background-clip: text;
@@ -254,7 +249,7 @@ body {
 }
 
 .newCard:before {
-    background-image: linear-gradient(35deg,#0ea5e9 10%,#40bddf 25%,#5cadcb 50%,#00bbcb 75%,#7988d6 90%);
+    background-image: linear-gradient(35deg,#C3732A 10%,#ffca94 25%,#FFD700 50%,#ffca94 75%,#C3732A 90%);
     border-radius: 0.25rem;
     height: calc(100% + 1px);
     top: -1px;
@@ -271,7 +266,7 @@ body {
 }
 
 .newCard:hover h2 {
-    background: linear-gradient(90deg, #67e8f9, #0284c7);
+    background: linear-gradient(90deg, #ffca94, #C3732A);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -279,3 +274,18 @@ body {
 .moreTop:before {
     top: -3px !important;
 }
+
+.wome {
+    background-color: #f1e1d0;
+}
+
+
+.depth {
+    background-color: #C3732A;
+    color: transparent;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+
