@@ -1,33 +1,32 @@
 <?php
 
-namespace App\Filament\Resources\PlayerResource\Pages;
+namespace App\Filament\Resources\DocumentResource\Pages;
 
+use App\Filament\Resources\DocumentResource;
 use Filament\Pages\Actions;
 use Filament\Pages\Actions\Action;
-use Illuminate\Support\Facades\Storage;
 use Filament\Resources\Pages\EditRecord;
-use App\Filament\Resources\PlayerResource;
 
-class EditPlayer extends EditRecord
+class EditDocument extends EditRecord
 {
-    protected static string $resource = PlayerResource::class;
+    protected static string $resource = DocumentResource::class;
 
     protected function getActions(): array
     {
-        $player = $this->record;
+        $document = $this->record;
 
         return [
             Action::make('Törlés')
-                    ->action(function () use ($player) {
-                        if(Storage::exists('public/'.$player->avatar)) {
-                            Storage::delete('public/'.$player->avatar);
+                    ->action(function () use ($document) {
+                        if(Storage::exists('public/'.$document->filepath)) {
+                            Storage::delete('public/'.$document->filepath);
                         }
-                        $player->delete();
-                        return redirect('/admin/players');
+                        $document->delete();
+                        return redirect('/admin/documents');
                     })
 
                     ->color('danger')
-                    ->modalHeading('Biztos törölni szeretnéd a játékost?')
+                    ->modalHeading('Biztos törölni szeretnéd a documentumot?')
                     ->requiresConfirmation()
         ];
     }
@@ -42,7 +41,7 @@ class EditPlayer extends EditRecord
 
     public function getTitle(): string
     {
-        return 'Játékos szerkesztése';
+        return 'Dokumentum szerkesztése';
     }
 
     protected function getRedirectUrl(): string {

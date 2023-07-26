@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\Player;
 use App\Models\Team;
 use App\Models\Post;
+use App\Models\Document;
 use Illuminate\Http\Request;
 
 class Controller extends BaseController
@@ -44,5 +45,24 @@ class Controller extends BaseController
 
     public function edzesek() {
         return view('edzesek');
+    }
+
+    public function jatekosok(Request $request, string $gender) {
+        $hun_gender = 'férfi';
+        $title = 'Férfi játékosok';
+
+        if ($gender == 'noi') {
+            $hun_gender = 'nő';
+            $title = 'Női játékosok';
+        }
+
+        $players = Player::where('gender', $hun_gender)->get();
+
+        return view('jatekosok', compact(['players', 'title']));
+    }
+
+    public function dokumentumok() {
+        $documents = Document::orderBy('created_at', 'desc')->get();
+        return view('szabalyzatok', compact(['documents']));
     }
 }

@@ -38,6 +38,16 @@ class PlayerResource extends Resource
                     ->label("Játékos neve")
                     ->required()
                     ->maxLength(255),
+                Select::make('gender')
+                    ->label("Neme")
+                    ->required()
+                    ->options([
+                        'férfi' => 'Férfi',
+                        'nő' => 'Nő',
+                    ]),
+                Forms\Components\Textarea::make('description')
+                    ->label('Leírás')
+                    ->rows(5),
                 FileUpload::make('avatar')
                     ->panelAspectRatio('2:1')
                     ->directory('players')
@@ -46,10 +56,6 @@ class PlayerResource extends Resource
                     ->label('Kép kiválasztása')
                     ->placeholder('Húzd ide a képet vagy klikkelj ide')
                     ->required(),
-                Forms\Components\TextInput::make('position')
-                    ->label("Pozíció")
-                    ->required()
-                    ->maxLength(255),
             ]);
     }
 
@@ -57,10 +63,11 @@ class PlayerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('team.name')->label('Csapatnév')->sortable(),
+                Tables\Columns\TextColumn::make('team.name')->label('Csapatnév')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('name')->label('Játékos neve')->sortable()->searchable(),
                 ImageColumn::make('avatar')->label('Profikép'),
-                Tables\Columns\TextColumn::make('position')->label('Poyíció'),
+                Tables\Columns\TextColumn::make('gender')->label('Neme'),
+                Tables\Columns\TextColumn::make('description')->label('Leírás'),
             ])
             ->filters([
                 //

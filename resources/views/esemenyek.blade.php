@@ -4,8 +4,8 @@
             @include('components.navbar')
         </div>
 
-        <div class="container mx-auto pt-8 pb-24 text-[#2323232]">
-            <h2 class="text-center text-3xl mb-8 text-[#a87c5b]">Mérkőzések</h2>
+        <div class="container mx-auto mt-14 pb-24 text-[#2323232]">
+            <h2 class="text-center text-3xl mb-20 text-[#a87c5b]">Mérkőzések</h2>
             @php
                 $customDate = '2010-05-12 13:57:01';
                 $currentYear = date('Y', strtotime($customDate));

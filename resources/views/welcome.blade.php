@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div>
         <div class="h-screen w-full relative">
-            <div class="absolute top-0 w-full text-[#a87c5b]">
+            <div class="absolute top-0 w-full text-[#a87c5b] z-10">
                 @include('components.navbar')
             </div>
             <div class="absolute h-full flex items-center">
@@ -9,7 +9,6 @@
                     Kabai Delta KSE
                 </h1>
             </div>
-
 
             <canvas id="myCanvas" class="h-full w-full"></canvas>
         </div>

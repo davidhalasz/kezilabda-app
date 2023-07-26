@@ -5,8 +5,8 @@
                 @include('components.navbar')
             </div>
 
-            <div class="container mx-auto text-[#f1e1d0] py-8">
-                <h2 class="text-center text-3xl mb-8 text-[#f1e1d0]">Edzések</h2>
+            <div class="container mx-auto text-[#f1e1d0] mt-14 pb-24">
+                <h2 class="text-center text-3xl mb-20 text-[#f1e1d0]">Edzések</h2>
                 <div class="flex flex-row justify-center">
                     <div class="w-1/6 flex flex-col border-r border-[#f1e1d0] p-1 text-center">
                         <h2 class="text-xl">KEDD</h2>

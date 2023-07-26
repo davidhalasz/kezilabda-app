@@ -3,8 +3,8 @@
         <div class="w-full text-[#232323]">
             @include('components.navbar')
         </div>
-        <div class="container mx-auto pt-8 pb-24">
-            <div class="text-5xl font-extrabold flex justify-center w-2/3 mx-auto">
+        <div class="container mx-auto mt-14 pb-24">
+            <div class="text-5xl font-extrabold flex justify-center w-2/3 mx-auto mb-20">
                 <span class="text-[#232323]">
                   {{$post->title}}
                 </span>
