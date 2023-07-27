@@ -115,7 +115,7 @@ function createCamera() {
 }
 
 function createObjectMesh() {
-    const glburl = "/storage/images/masikblend.glb";
+    const glburl = "/images/masikblend.glb";
     loader.load(glburl, function (gltf) {
         gltf.scene.traverse((obj) => {
             if (obj.isMesh) {

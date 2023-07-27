@@ -10,6 +10,11 @@ body {
     background-color: #232323;
 }
 
+.centerLogo {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /* Image carousel */
 
 .main--title{
