@@ -28,8 +28,8 @@ class EventResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->label("Cím")
+                Forms\Components\TextInput::make('play_with')
+                    ->label("Kivel játszik?")
                     ->required()
                     ->maxLength(255),
                 Forms\Components\DateTimePicker::make('date')
@@ -38,9 +38,6 @@ class EventResource extends Resource
                 Forms\Components\TextInput::make('address')
                     ->label("Helyszín")
                     ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->label("Leírás (nem kötelező)")
-                    ->maxLength(65535),
             ]);
     }
 
@@ -48,8 +45,7 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')->label("Cím"),
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('play_with')->label("Másik csapat"),
                 Tables\Columns\TextColumn::make('date')->label("Időpont")
                 ->formatStateUsing(function ($record) {
                     return Carbon::parse($record->date)->isoFormat('YYYY MMMM DD. HH:mm');

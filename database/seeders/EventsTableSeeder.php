@@ -14,45 +14,39 @@ class EventsTableSeeder extends Seeder
     public function run(): void
     {
         Event::create([
-            'title' => 'Kaba - Tetétlen meccs',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut urna accumsan, vulputate nisl non',
             'date' => '2023-06-23 15:30:00',
-            'address' => 'Kaba varosi sportcsarknok, valamilyen utca 1'
+            'play_with' => 'FTC-RAIL CARGO HUNGÁRIA',
+            'address' => 'Kaba varosi sportcsarknok'
         ]);
 
         Event::create([
-            'title' => 'Kaba - Debrecen meccs',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut urna accumsan, vulputate nisl non',
             'date' => '2023-07-12 18:00:00',
+            'play_with' => 'DVSC SCHAEFFLER',
             'address' => 'Debrecen Hodosi sportcsarnok, Kassai ut 1'
         ]);
 
         Event::create([
-            'title' => 'Kaba - Manchester meccs',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut urna accumsan, vulputate nisl non',
             'date' => '2023-09-23 10:30:00',
+            'play_with' => 'GLORIA BISTRITA',
             'address' => 'Manchester, sport street 4'
         ]);
 
         Event::create([
-            'title' => 'Kaba - DVSC meccs',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut urna accumsan, vulputate nisl non',
             'date' => '2023-07-23 15:30:00',
-            'address' => 'Kaba varosi sportcsarknok, valamilyen utca 1'
+            'play_with' => 'SUGAR GLIDERS (KOR)',
+            'address' => 'Kaba varosi sportcsarknok'
         ]);
 
         Event::create([
-            'title' => 'Kaba - Hajduszoboszlo meccs',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut urna accumsan, vulputate nisl non',
             'date' => '2023-06-15 16:30:00',
-            'address' => 'Hajduszoboszlo, Momo utca 1'
+            'play_with' => 'DVSC SCHAEFFLER',
+            'address' => 'Hajduszoboszlo'
         ]);
 
         Event::create([
-            'title' => 'Kaba - Tetétlen meccs',
-            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut urna accumsan, vulputate nisl non',
             'date' => '2023-05-29 15:30:00',
-            'address' => 'Kaba varosi sportcsarknok, valamilyen utca 1'
+            'play_with' => 'GLORIA BUZAU',
+            'address' => 'Kaba varosi sportcsarknok'
         ]);
     }
 }

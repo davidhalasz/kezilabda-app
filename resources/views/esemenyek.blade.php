@@ -6,39 +6,20 @@
 
         <div class="container mx-auto mt-14 pb-24 text-[#2323232]">
             <h2 class="text-center text-3xl mb-20 text-[#a87c5b]">Mérkőzések</h2>
-            @php
-                $customDate = '2010-05-12 13:57:01';
-                $currentYear = date('Y', strtotime($customDate));
-                $currentMonth = date('m', strtotime($customDate));
-                $previousYear = null;
-                $previousMonth = null;
-            @endphp
             @foreach ($events as $event)
-                @php
-                    $eventYear = date('Y', strtotime($event['date']));
-                    $eventMonth = date('m', strtotime($event['date']));
-                @endphp
-
-                <div class="flex  flex-row {{ $eventYear != $previousYear || $eventMonth != $previousMonth ? 'pt-4' : '' }}">
-                    <h2 class="w-1/4 font-bold text-4xl depth">
-                        @if ($eventYear != $previousYear || $eventMonth != $previousMonth)
-                            {{ $eventYear . ' ' . \Carbon\Carbon::createFromFormat('m', $eventMonth)->isoFormat('MMMM') }}
-                        @endif
-                    </h2>
-
-                    <div class="w-3/4 pb-4 px-4 {{ $eventYear == $previousYear && $eventMonth == $previousMonth ? 'pt-2 border-t-2 border-slate-200' : '' }}">
-                        <p class="text-lg font-bold">{{ $event->title }}</p>
-                        <p>Időpont: 2023 junius 13. 17:00</p>
-                        <p>Helyszín: {{ $event->address }}</p>
-                        <p class="mt-2">
-                            {{ $event->description }}
+                <div
+                    class="rounded-md mt-8 relative flex gap-14 text-xl font-bold border-4 border-[#a87c5b] mx-auto w-2/3 px-4 py-[24px]">
+                    <p class="w-5/12 text-center pt-2 uppercase">Kabai Delta KSE</p>
+                    <div class="w-2/12 text-center uppercase">
+                        <p class="border-y-2 border-[#a87c5b] inline-block py-1">VS</p>
+                    </div>
+                    <p class="w-5/12 text-center pt-2 uppercase">{{$event->play_with}}</p>
+                    <div class="absolute -bottom-[20px] flex justify-center centerLogo">
+                        <p class="py-2 px-4 bg-[#a87c5b] text-white text-sm rounded-sm">
+                            {{ \Carbon\Carbon::parse($event->date)->isoFormat('YYYY MMMM DD.') . ' - ' . $event->address}}
                         </p>
                     </div>
                 </div>
-                @php
-                    $previousYear = $eventYear;
-                    $previousMonth = $eventMonth;
-                @endphp
             @endforeach
 
         </div>

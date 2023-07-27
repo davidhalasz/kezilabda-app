@@ -35,7 +35,7 @@ function background() {
     scene.add(starGroup);
 
     const starTexture = new THREE.TextureLoader().load(
-        "/storage/images/para.png"
+        "/images/para.png"
     );
     const starMaterial = new THREE.SpriteMaterial({
         map: starTexture,

@@ -21,11 +21,10 @@
                             <div class="rounded-2xl shadow-lg p-4 border-2 border-gray-300 text-gray-300">
                                 <h2 class="text-xl font-bold">
                                     {{ \Carbon\Carbon::parse($event->date)->isoFormat('YYYY MMMM DD.') }}</h2>
-                                <h3 class="Text-lg font-bold mb-2">
+                                <h3 class="Text-lg font-bold">
                                     {{ \Carbon\Carbon::parse($event->date)->isoFormat('HH:mm') }}</h3>
-                                <p class="text-md font-bold mb-1">{{ $event->title }}</p>
-                                <p class="text-md">Helyszin: {{ $event->address }}</p>
-                                <p class="text-md mt-2">{{ $event->description }}</p>
+                                <p class="text-md mb-2">{{ $event->address }}</p>
+                                <p class="text-md font-bold mb-1">Kabai Delta KSE - {{ $event->play_with }}</p>
                             </div>
 
                     @endforeach
