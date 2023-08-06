@@ -4,8 +4,6 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { MeshSurfaceSampler } from "three/examples/jsm/math/MeshSurfaceSampler";
 import * as TWEEN from "three/examples/jsm/libs/tween.module";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 
 const dracoLoader = new DRACOLoader();
 const loader = new GLTFLoader();
@@ -115,7 +113,7 @@ function createCamera() {
 }
 
 function createObjectMesh() {
-    const glburl = "/images/masikblend.glb";
+    const glburl = "/images/masikblend6.glb";
     loader.load(glburl, function (gltf) {
         gltf.scene.traverse((obj) => {
             if (obj.isMesh) {
@@ -222,53 +220,6 @@ function onMouseMove(event) {
         star.position.y = initialPosition.y + cursor.y * scaleFactor;
     });
 
-    /*
-    const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(cursor, camera);
-    const intersects = raycaster.intersectObject(points);
-
-    if (intersects.length) {
-        const { point } = intersects[0];
-
-        for (let i = 0; i < numPoints; i++) {
-            const vertex = pointsGeometry.attributes.position.array.slice(
-                i * 3,
-                i * 3 + 3
-            );
-            const position = new THREE.Vector3().fromArray(vertex);
-
-            const seg = position.clone().sub(point);
-            const dir = seg.clone().normalize();
-            const dist = seg.length();
-
-            if (dist < 0.5) {
-                const force = THREE.MathUtils.clamp(
-                    1.0 * (dist * dist),
-                    -0.3,
-                    0.3
-                );
-                position.addScaledVector(dir, force);
-
-                // Update the position in the buffer geometry
-                pointsGeometry.attributes.position.setXYZ(
-                    i,
-                    position.x,
-                    position.y,
-                    position.z
-                );
-            }
-        }
-
-        // Mark the buffer geometry as needing an update
-        pointsGeometry.attributes.position.needsUpdate = true;
-    } else {
-        // Reset the points to their original positions
-        pointsGeometry.setAttribute(
-            "position",
-            new THREE.Float32BufferAttribute(vertices, 3)
-        );
-    }
-    */
 
     const rotationX = cursor.x * Math.PI * 0.02; // Adjust the rotation factor as needed
     const rotationY = cursor.y * Math.PI * 0.02; // Adjust the rotation factor as needed
@@ -288,6 +239,8 @@ function init() {
     //postProcessing();
     rendeLoop();
     container.addEventListener("mousemove", onMouseMove, false);
+    container.addEventListener('touchstart', (event) => event.preventDefault(), { passive: false });
+    container.addEventListener('touchmove', (event) => event.preventDefault(), { passive: false });
     window.addEventListener('resize', () => {
         const width = window.innerWidth
         const height = window.innerHeight
@@ -312,5 +265,11 @@ function animate() {
     render();
 }
 
-init();
-animate();
+var currentURL = window.location.href;
+var targetURL = "https://kabaideltakse.hu/";
+var anotherTargetUrl = "https://kabaideltakse.hu/#csapatok"
+
+if (currentURL === targetURL || currentURL === anotherTargetUrl || currentURL === "http://kabaideltakse.hu/" || currentURL === "http://kabaideltakse.hu/#csapatok" || currentURL === "http://localhost:8000/") {
+    init();
+    animate();
+}

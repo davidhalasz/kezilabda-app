@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+.mobileMenu {
+    position: fixed;
+    background: #232323;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+}
+
+[x-cloak] {
+    display: none;
+}
+
+
 a {
     cursor: pointer;
 }
@@ -19,26 +34,53 @@ body {
 
 .main--title{
     color: white;
-    font-size: 7em;
+    font-size: 3.5em;
     font-weight: 100;
     margin-left: 10%;
-    width: 510px;
-    line-height: 90px;
+    width: 210px;
+    line-height: 45px;
     transform: translateX(30%);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
+@media only screen and (min-width: 640px) {
+    .main--title{
+        color: white;
+        font-size: 6em;
+        font-weight: 100;
+        margin-left: 10%;
+        width: 310px;
+        line-height: 90px;
+        transform: translateX(30%);
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .main--title{
+        color: white;
+        font-size: 7em;
+        font-weight: 100;
+        margin-left: 10%;
+        width: 510px;
+        line-height: 90px;
+        transform: translateX(30%);
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+}
+
+
 .main--title.ended{
     transform: translateX(0);
-    opacity: 1;
+    opacity: 0.4;
     mix-blend-mode: soft-light;
 }
 
 .main--title.ended:after {
-    /* This value is the OPPOSITE color of our background */
-    color: rgb(0, 255, 255);
-
+    color: #a87c5b;
 }
 
 :root {
@@ -234,7 +276,13 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 4.5rem 2rem;
+    padding: 2.5rem 2rem;
+}
+
+@media only screen and (min-width: 640px) {
+    .newCard {
+        padding: 4.5rem 2rem;
+    }
 }
 
 .card__content {

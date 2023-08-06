@@ -7,6 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Event;
 use App\Models\Player;
+use App\Models\Coach;
 use App\Models\Team;
 use App\Models\Post;
 use App\Models\Document;
@@ -47,6 +48,11 @@ class Controller extends BaseController
         return view('edzesek');
     }
 
+    public function edzok() {
+        $coaches = Coach::orderBy('name')->get();
+        return view('edzok', compact(['coaches']));
+    }
+
     public function jatekosok(Request $request, string $gender) {
         $hun_gender = 'férfi';
         $title = 'Férfi játékosok';
@@ -64,5 +70,9 @@ class Controller extends BaseController
     public function dokumentumok() {
         $documents = Document::orderBy('created_at', 'desc')->get();
         return view('szabalyzatok', compact(['documents']));
+    }
+
+    public function kapcsolat() {
+        return view('kapcsolat');
     }
 }

@@ -15,7 +15,19 @@
         <div class="w-full bg-[#232323] py-10 text-white">
             <div class="container mx-auto">
                 <h2 class="text-center text-3xl mb-8 text-[#a87c5b]">Mérkőzések</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex gap-8 snap-x overflow-x-auto lg:hidden">
+                    @foreach ($events as $event)
+                        <div class="w-[300px] flex-none snap-normal snap-center rounded-2xl shadow-lg p-4 border-2 border-gray-300 text-gray-300">
+                            <h2 class="text-xl font-bold">
+                                {{ \Carbon\Carbon::parse($event->date)->isoFormat('YYYY MMMM DD.') }}</h2>
+                            <h3 class="Text-lg font-bold">
+                                {{ \Carbon\Carbon::parse($event->date)->isoFormat('HH:mm') }}</h3>
+                            <p class="text-md mb-2">{{ $event->address }}</p>
+                            <p class="text-md font-bold mb-1">Kabai Delta KSE - {{ $event->play_with }}</p>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="lg:grid grid-cols-4 gap-8 hidden">
                     @foreach ($events as $event)
 
                             <div class="rounded-2xl shadow-lg p-4 border-2 border-gray-300 text-gray-300">
@@ -40,9 +52,9 @@
 
         <div class="relative w-full">
             <div class="absolute w-full h-full bg-[#f1e1d0] -z-10"></div>
-            <div class="container mx-auto py-14">
+            <div class="container mx-auto py-14 px-2">
                 <h2 class="text-center text-3xl mb-8">Hírek</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
                     @foreach ($posts as $post)
                         @php
                             $pattern = '/<figure\b[^>]*>(.*?)<\/figure>/s';
@@ -77,14 +89,14 @@
         </div>
 
         <div class="w-full bg-[#232323]">
-            <div id="csapatok" class="container mx-auto pt-14 pb-36">
+            <div id="csapatok" class="container mx-auto pt-14 pb-36 px-4">
                 <h2 class="text-center text-3xl mb-8 text-[#a87c5b]">Csapatok</h2>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2">
                     @foreach ($teams as $team)
                         <a href="/csapatok/{{$team->id}}">
                             <div id="carousel-{{ $loop->index }}" class="mb-36 relative w-full flex justify-center">
                                 <div
-                                    class="neumorphCard absolute w-2/3 h-[180px] rounded-2xl -bottom-28 flex justify-center">
+                                    class="neumorphCard absolute w-full md:w-5/6 lg:w-2/3 h-[180px] rounded-2xl -bottom-28 flex justify-center">
                                     <h2 class="absolute text-2xl bottom-0 py-6 text-[#a87c5b]">
                                         {{ $team->name }}
                                     </h2>
@@ -151,7 +163,6 @@
 
     </div>
 
-    <script type="module" src="{{ Vite::asset('resources/js/model-animate.js') }}"></script>
     <script>
         function scrollToDiv() {
             window.location.href = '/#csapatok';

@@ -38,9 +38,9 @@ class PostResource extends Resource
                     ->label("Szöveg")
                     ->required()
                     ->maxLength(65535)
-                    ->fileAttachmentsDisk('s3')
+                    ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('attachments')
-                    ->fileAttachmentsVisibility('private'),
+                    ->fileAttachmentsVisibility('public'),
             ])
             ->columns(['lg' => 1]);
     }

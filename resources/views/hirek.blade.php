@@ -1,11 +1,12 @@
 <x-guest-layout>
+    @section('title') {{'- Hírek'}} @endsection
     <div class="w-full min-h-screen">
             <div class="w-full text-[#eaaa84]">
                 @include('components.navbar')
             </div>
-            <div class="container mx-auto mt-14 pb-24">
+            <div class="container mx-auto mt-4 lg:mt-14 pb-24 px-2">
                 <h2 class="text-center text-3xl mb-20 text-[#a87c5b]">Hírek</h2>
-                <div class="grid grid-cols-3 gap-6 text-gray-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-200">
                     @foreach ($posts as $post)
                         @php
                             $pattern = '/<figure\b[^>]*>(.*?)<\/figure>/s';

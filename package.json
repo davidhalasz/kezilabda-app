@@ -16,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@alpinejs/focus": "^3.12.3",
         "@tailwindcss/line-clamp": "^0.4.4",
         "alpinejs": "^3.12.3",
         "gsap": "^3.12.1",

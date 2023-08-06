@@ -16,7 +16,11 @@ use App\Http\Controllers\Controller;
 
 Route::get('/', [Controller::class, 'welcome'])->name('welcome');
 
+Route::get('/kapcsolat', [Controller::class, 'kapcsolat'])->name('kapcsolat');
+
 Route::get('/csapatok/{id}', [Controller::class, 'csapatok'])->name('csapatok');
+
+Route::get('/edzok', [Controller::class, 'edzok'])->name('edzok');
 
 Route::get('/jatekosok/{gender}', [Controller::class, 'jatekosok'])->name('jatekosok');
 
